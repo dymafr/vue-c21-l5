@@ -8,7 +8,6 @@ import { useCart } from './stores/cartStore';
 import { useProducts } from './stores/productStore';
 
 const productStore = useProducts();
-productStore.fetchProducts();
 const cartStore = useCart();
 
 function updateFilter(filterUpdate: FilterUpdate) {

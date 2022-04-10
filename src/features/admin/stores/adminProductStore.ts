@@ -9,6 +9,7 @@ import {
   editProduct,
   fetchProducts,
 } from '../../../shared/services/product.service';
+import { useProducts } from '../../boutique/stores/productStore';
 
 interface AdminProductState {
   products: ProductInterface[];
@@ -41,14 +42,18 @@ export const useAdminProducts = defineStore('adminProduct', {
       }
     },
     async addProduct(productForm: ProductFormInterface) {
+      const productStore = useProducts();
       const newProduct = await addProduct(productForm);
       if (newProduct) {
+        productStore.needRefresh = true;
         this.products.push(newProduct);
       }
     },
     async editProduct(productId: string, productForm: ProductFormInterface) {
+      const productStore = useProducts();
       const editedProduct = await editProduct(productId, productForm);
       if (editedProduct) {
+        productStore.needRefresh = true;
         const stateProductIndex = this.products.findIndex(
           (p) => p._id === editedProduct._id
         );
