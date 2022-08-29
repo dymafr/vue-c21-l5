@@ -14,12 +14,12 @@ export const router = createRouter({
     {
       path: '/boutique',
       beforeEnter: [initialFetchProducts],
-      component: () => import('@/features/boutique/Boutique.vue'),
+      component: () => import('./features/boutique/Boutique.vue'),
     },
     {
       path: '/admin',
       beforeEnter: [initialFetchAdminProducts],
-      component: () => import('@/features/admin/Admin.vue'),
+      component: () => import('./features/admin/Admin.vue'),
       children: ADMIN_ROUTES,
     },
     {
