@@ -24,8 +24,8 @@ seed40articles('vueprojectproducts');
 </template>
 
 <style lang="scss">
-@import './assets/scss/base.scss';
-@import './assets/scss/debug.scss';
+@use './assets/scss/base.scss';
+@use './assets/scss/debug.scss';
 
 .app-container {
   height: 100vh;
